@@ -4,19 +4,20 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/',strict_slashes=False)
 def hello_hbnb():
     return 'Hello HBNB!'
 
 
-@app.route('/hbnb', strict_slashes=False)
+@app.route('/hbnb',strict_slashes=False)
 def display_hbnb():
+    """ Prints a Message when /hbnb is called """
     return 'HBNB'
 
 
-@app.route('/c/<text>', strict_slashes=False)
-def display_c(text):
-    return "C" + text.replace('_', ' ')
+@app.route('/c/<text>',strict_slashes=False)
+def c_is_fun(text):
+    return "C"+text.replace('_','')
 
 
 """Run the code if main"""
