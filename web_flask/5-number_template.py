@@ -29,18 +29,18 @@ def python_is_cool(text='is cool'):
     return "Python " + text.replace('_', ' ')
 
 
-@app.route('/number/<int:n>', strict_slashes=False)
+@app.route('/number/<n>', strict_slashes=False)
 def display_n(n):
     """Displays '{n} is a number' only if n is an integer"""
     if isinstance(n, int):
         return '{} is a number'.format(n)
 
 
-@app.route('/number_template/<int:n>', strict_slashes=False)
+@app.route('/number_template/<n>', strict_slashes=False)
 def display_html(n):
     """Displays an HTML page with 'Number: n' if n is an integer"""
     if isinstance(n, int):
-        return render_template('number_template.html', n=n)
+        return "HTML"
 
 
 if __name__ == '__main__':
