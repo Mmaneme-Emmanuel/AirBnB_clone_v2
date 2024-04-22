@@ -38,8 +38,11 @@ class DBStorage:
             returns a dictionary of __object
         """
         dic = {}
+        if self.__session is None:
+            raise RuntimeError("Session is not initialized")
+
         if cls:
-            if type(cls) is str:
+            if isinstance(cls, str):
                 cls = eval(cls)
             query = self.__session.query(cls)
             for elem in query:
