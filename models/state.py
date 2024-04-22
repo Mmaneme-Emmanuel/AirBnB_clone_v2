@@ -7,6 +7,7 @@ from sqlalchemy import Column, Integer, String
 import models
 from models.city import City
 import shlex
+from os import getenv
 
 
 class State(BaseModel, Base):
@@ -19,7 +20,6 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            # Check if the storage engine is not DBStorage
             city_list = []
             for city in models.storage.all().values():
                 if city.state_id == self.id:
